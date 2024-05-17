@@ -11,41 +11,15 @@ class homeView extends StatelessWidget {
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.search_rounded))
         ],
-        title: Text('Weather App'),
+        title: Text('Climate Connect'),
         centerTitle: true,
         titleTextStyle: const TextStyle(
           fontSize: 22,
           fontWeight: FontWeight.bold,
         ),
-        //backgroundColor:Color(0xffEFD569)
+        backgroundColor:Color(0xffFEB941)
       ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset(
-              'assets/cloudy.png',
-              width: 150,
-              height: 150,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => NoWeatherBody()),
-                );
-              },
-              child: Text('Start Search Now', style: TextStyle(fontSize: 27,fontWeight: FontWeight.bold)),
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(150, 50), // Set the button size
-              ),
-            ),
-          ],
-        ),
-      ),
+      body: NoWeatherBody(),
     );
   }
 }
