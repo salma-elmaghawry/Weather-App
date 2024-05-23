@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather/Widgets/NoWeatherBody.dart';
+import 'package:weather/pages/SearchView.dart';
 
 class homeView extends StatelessWidget {
   const homeView({super.key});
@@ -8,17 +9,26 @@ class homeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.search_rounded))
-        ],
-        title: Text('Climate Connect'),
-        centerTitle: true,
-        titleTextStyle: const TextStyle(
-          fontSize: 22,
-          fontWeight: FontWeight.bold,
-        ),
-        backgroundColor:Color(0xffFEB941)
-      ),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return SearchView();
+                      },
+                    ),
+                  );
+                },
+                icon: Icon(Icons.search_rounded))
+          ],
+          title: Text('Climate Connect'),
+          centerTitle: true,
+          titleTextStyle: const TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+          backgroundColor: Color(0xffFEB941)),
       body: NoWeatherBody(),
     );
   }

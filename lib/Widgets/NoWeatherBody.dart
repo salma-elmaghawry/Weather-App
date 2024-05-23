@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather/Widgets/WeatherInfoBody.dart';
+import 'package:weather/pages/SearchView.dart';
 import 'package:weather/pages/homeView.dart';
 
 class NoWeatherBody extends StatelessWidget {
@@ -22,10 +23,10 @@ class NoWeatherBody extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => WeatherInfoBody()),
-                );
+                Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return SearchView();
+                  }));
               },
               child: Text('Start Search Now', style: TextStyle(fontSize: 27,fontWeight: FontWeight.bold)),
               style: ElevatedButton.styleFrom(
