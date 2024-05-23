@@ -12,8 +12,28 @@ class SearchView extends StatelessWidget {
             fontSize: 22,
             fontWeight: FontWeight.bold,
           ),
-          backgroundColor: Color(0xffFEB941)), 
-          body: ,
-    );
+          ), 
+          
+          body: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child:  Center(
+              child:  TextField(
+
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+                  labelText: 'Search',
+                  suffixIcon: Icon(Icons.search),
+                  //suffixIconColor: Colors.amber,
+                  border:OutlineInputBorder(
+                  borderRadius:BorderRadius.circular(16),  
+                  ) ,
+                  hintText: 'Enter City Name',
+                  )
+                ),
+            
+              ),
+            ),
+          );
+    
   }
 }
