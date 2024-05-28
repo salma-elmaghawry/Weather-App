@@ -28,7 +28,7 @@ class homeView extends StatelessWidget {
             fontSize: 22,
             fontWeight: FontWeight.bold,
           ),
-          backgroundColor: Color(0xffFEB941)),
+          backgroundColor: Color(0xff62a1c7)),
       body: NoWeatherBody(),
     );
   }

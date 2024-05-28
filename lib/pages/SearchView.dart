@@ -10,11 +10,12 @@ class SearchView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Search for the City'),
-        centerTitle: true,
+        //centerTitle: true,
         titleTextStyle: const TextStyle(
           fontSize: 22,
           fontWeight: FontWeight.bold,
         ),
+        backgroundColor: Color(0xff62a1c7),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),

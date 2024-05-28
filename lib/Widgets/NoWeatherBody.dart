@@ -30,7 +30,7 @@ class NoWeatherBody extends StatelessWidget {
               },
               child: Text('Start Search Now', style: TextStyle(fontSize: 27,fontWeight: FontWeight.bold)),
               style: ElevatedButton.styleFrom(
-                primary:Color(0xffFEB941),
+                primary:Color(0xff62a1c7),
                 minimumSize: Size(150, 50), // Set the button size
               ),
             ),
