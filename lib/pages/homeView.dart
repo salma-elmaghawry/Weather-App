@@ -16,6 +16,7 @@ class homeView extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) {
                         return SearchView();
+                        
                       },
                     ),
                   );
