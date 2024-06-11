@@ -1,4 +1,4 @@
-class Weather_Service
+class WeatherService
 {
   
 }
