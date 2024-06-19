@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:weather/models/weather_model.dart';
 
@@ -11,8 +13,13 @@ class WeatherService {
       Response response = await dio
           .get('$baseURL/forecast.json?key=$ApiKey&q=$cityName&days=1');
       WeatherModel weatherModel = WeatherModel.fromJson(response.data);
-    }on DioException catch (e) {
-      return null;
+    } on DioException catch (e) {
+      final String errorMessage = e.response?.data['error']['message'] ??
+          'oops there wan an error,try later';
+      throw Exception(errorMessage);
+    } catch (e) {
+      log(e.toString());
+      throw Exception('oops there wan an error,try later');
     }
   }
 }
