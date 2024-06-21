@@ -27,7 +27,7 @@ class WeatherInfoBody extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset('assets/cloudy.png'),
+                //Image.asset('assets/weather-app logo.png'),
                 Container(
                     child: const Text(
                   '20',
