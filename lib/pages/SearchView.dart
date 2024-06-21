@@ -1,6 +1,9 @@
 import 'dart:developer';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:weather/Services/weather_Service.dart';
+import 'package:weather/models/weather_model.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});
@@ -19,12 +22,11 @@ class SearchView extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-      
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
                 'assets/cloudy.png',
                 width: 150,
                 height: 150,
@@ -32,24 +34,26 @@ class SearchView extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-                TextField(
-                    onSubmitted: (value) {
-                      log(value);
-                    },
-                    decoration: InputDecoration(
-                      contentPadding:
-                          const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                      labelText: 'Search',
-                      suffixIcon: Icon(Icons.search),
-                      //suffixIconColor: Colors.amber,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      hintText: 'Enter City Name',
-                    )),
-              ],
-            ),
-          
+              TextField(
+                  onSubmitted: (value) async {
+                    WeatherModel weatherModel = await WeatherService(Dio())
+                        .getCurrentWeather(cityName: value);
+                        //cityName: json['location']['name'],
+                    log(weatherModel.cityName);
+                  },
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 20),
+                    labelText: 'Search',
+                    suffixIcon: Icon(Icons.search),
+                    //suffixIconColor: Colors.amber,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    hintText: 'Enter City Name',
+                  )),
+            ],
+          ),
         ),
       ),
     );
