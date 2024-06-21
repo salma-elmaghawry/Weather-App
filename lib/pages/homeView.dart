@@ -8,6 +8,7 @@ class homeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //weatherModel.cityName;
     return Scaffold(
       appBar: AppBar(
           actions: [
@@ -17,7 +18,6 @@ class homeView extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) {
                         return SearchView();
-                        
                       },
                     ),
                   );
@@ -31,7 +31,9 @@ class homeView extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
           backgroundColor: Color(0xff62a1c7)),
-      body:NoWeatherBody(),
+      body: weatherModel == null
+          ? const NoWeatherBody()
+          : const WeatherInfoBody(),
     );
   }
 }
