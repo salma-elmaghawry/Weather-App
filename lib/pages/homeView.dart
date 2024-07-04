@@ -31,9 +31,8 @@ class homeView extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
           backgroundColor: Color(0xff62a1c7)),
-      body: weatherModel == null
-          ? const NoWeatherBody()
-          : const WeatherInfoBody(),
+      body: 
+          const WeatherInfoBody(),
     );
   }
 }
