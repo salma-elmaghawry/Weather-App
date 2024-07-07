@@ -32,7 +32,7 @@ class homeView extends StatelessWidget {
           ),
           backgroundColor: Color(0xff62a1c7)),
       body: 
-          const WeatherInfoBody(),
+          const NoWeatherBody(),
     );
   }
 }
