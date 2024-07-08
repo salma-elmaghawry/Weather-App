@@ -10,4 +10,8 @@ class WeatherLoadedState extends WeatherState {
   WeatherLoadedState(this.weatherModel);
 }
 
-class WeatherFaliureState extends WeatherState {}
+class WeatherFaliureState extends WeatherState {
+  final String errorMessage;
+
+  WeatherFaliureState(this.errorMessage);
+}
