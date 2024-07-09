@@ -18,11 +18,11 @@ class WeatherInfoBody extends StatelessWidget {
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
             ),
             Text(
-              'Upadated at ${stringToDateTime(weatherModel.date).hour}',
-              style: const TextStyle(fontSize: 15),
+              'Upadated at ${weatherModel.date.hour}:${weatherModel.date.minute}',
+              style: const TextStyle(fontSize: 24),
             ),
             const SizedBox(
-              height: 10,
+              height: 32,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -61,6 +61,3 @@ class WeatherInfoBody extends StatelessWidget {
   }
 }
 
-DateTime stringToDateTime(String value) {
-  return DateTime.parse(value);
-}

@@ -4,7 +4,7 @@ import 'package:weather/pages/homeView.dart';
 
 
 void main() {
-  runApp(WeatherApp());
+  runApp(const WeatherApp());
 }
 
 class WeatherApp extends StatelessWidget {

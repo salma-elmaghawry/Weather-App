@@ -8,7 +8,7 @@ class NoWeatherBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //اعمل ui اللى يعرضلى ان مفيش ويزر ممكن تعمل سيرش
+  
     return Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -28,7 +28,7 @@ class NoWeatherBody extends StatelessWidget {
                     return SearchView();
                   }));
               },
-              child: Text('Start Search Now', style: TextStyle(fontSize: 27,fontWeight: FontWeight.bold)),
+              child:  Text('Start Search Now', style: TextStyle(fontSize: 27,fontWeight: FontWeight.bold)),
               style: ElevatedButton.styleFrom(
                 primary:Color(0xff62a1c7),
                 minimumSize: Size(150, 50), // Set the button size
