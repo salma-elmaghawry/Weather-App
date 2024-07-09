@@ -60,4 +60,3 @@ class WeatherInfoBody extends StatelessWidget {
         ));
   }
 }
-
