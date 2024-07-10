@@ -6,6 +6,6 @@
 🌦️The app allows users to search for the weather in their city, displaying the current weather conditions and dynamically updating the UI based on real-time data fetched from an API. 
 
 ## Features
-🔎 **State Management with BLoC and Cubit**: Ensures smooth state transitions and efficient data handling.
+🔎 **State Management with BLoC and Cubit**: Ensures smooth state transitions and efficient data handling.  
 🔎 **API Integration**: Fetches real-time weather data from Weather API, providing accurate and up-to-date information.
 
