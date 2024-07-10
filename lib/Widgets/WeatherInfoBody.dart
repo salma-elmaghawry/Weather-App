@@ -20,10 +20,22 @@ class WeatherInfoBody extends StatelessWidget {
           WeatherModel weatherModel = state.weatherModel;
 
           return Container(
-            decoration: const BoxDecoration(gradient:LinearGradient(
-              begin: Alignment.topCenter,end: Alignment.bottomCenter,
-              colors: [ Color(0xff62a1c7),Color(0xffFFBF78)],
-              )),
+            decoration: BoxDecoration(
+              
+              gradient:LinearGradient(
+            
+              begin: Alignment.topLeft,end: Alignment.bottomRight,
+              colors: [
+                getThemeColor(weatherModel.weatherCondition),
+                getThemeColor(weatherModel.weatherCondition)[300]!,
+                getThemeColor(weatherModel.weatherCondition)[50]!
+
+
+                  
+                ],  
+              //colors: [Color(0xff62a1c7),Color(0xffFFBF78)],
+              )
+              ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
@@ -35,7 +47,7 @@ class WeatherInfoBody extends StatelessWidget {
                         fontWeight: FontWeight.bold, fontSize: 35),
                   ),
                   Text(
-                    'Updated at ${weatherModel.date.hour.toString()}:${weatherModel.date.minute.toString()}',
+                    'Updated at ${weatherModel.date.hour.toString().padLeft(2, '0')}:${weatherModel.date.minute.toString().padLeft(2, '0')}',
                     style: const TextStyle(fontSize: 15),
                   ),
                   const SizedBox(height: 32),
@@ -43,20 +55,27 @@ class WeatherInfoBody extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Image.network("https:${weatherModel.image}"),
-                      Text(
-                        weatherModel.temp.toString(),
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
+                      Container(
+                        padding: const EdgeInsets.symmetric(vertical: 11.0, horizontal: 40.0),
+                          decoration: BoxDecoration(
+                        border: Border.all(color: Color.fromARGB(255, 218, 209, 209), width: 2),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                        child: Text(
+                          '${weatherModel.temp.toString()} °C',
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 35),
+                        ),
                       ),
                       Column(
                         children: [
                           Text(
-                            'Maxtemp: ${weatherModel.maxTemp.round()}',
+                            'Max: ${weatherModel.maxTemp.round()}°C',
                             style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 15),
                           ),
                           Text(
-                            'Mintemp: ${weatherModel.minTemp.round()}',
+                            'Min: ${weatherModel.minTemp.round()}°C',
                             style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 15),
                           ),
@@ -79,8 +98,8 @@ class WeatherInfoBody extends StatelessWidget {
           return Center(child: Text('Error: ${state.errorMessage}'));
         } else {
           // Display a default message when no data is available
-          return Center(
-              child: Text('Enter a city name to get weather information.'));
+          return const  Center(
+              child: Text('Enter a valid city name to get weather information.'));
         }
       },
     );
