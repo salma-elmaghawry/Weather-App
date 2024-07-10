@@ -5,8 +5,8 @@ import 'package:weather/cubits/get_weather_cubit/get_weather_states.dart';
 import 'package:weather/models/weather_model.dart';
 
 class WeatherInfoBody extends StatelessWidget {
-  const WeatherInfoBody({super.key});
-
+  const WeatherInfoBody({super.key, required this.weatherModel});
+  final WeatherModel weatherModel;
   @override
   Widget build(BuildContext context) {
     // Use BlocBuilder to reactively rebuild based on the state
@@ -25,7 +25,8 @@ class WeatherInfoBody extends StatelessWidget {
               children: [
                 Text(
                   weatherModel.cityName,
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 25),
                 ),
                 Text(
                   'Updated at ${weatherModel.date.hour}:${weatherModel.date.minute}',
@@ -39,19 +40,19 @@ class WeatherInfoBody extends StatelessWidget {
                     Text(
                       weatherModel.temp.toString(),
                       style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 20),
+                          fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                     Column(
                       children: [
                         Text(
                           'Maxtemp: ${weatherModel.maxTemp.round()}',
                           style: const TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+                              fontWeight: FontWeight.bold, fontSize: 15),
                         ),
                         Text(
                           'Mintemp: ${weatherModel.minTemp.round()}',
                           style: const TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
+                              fontWeight: FontWeight.bold, fontSize: 15),
                         ),
                       ],
                     ),
@@ -61,7 +62,7 @@ class WeatherInfoBody extends StatelessWidget {
                 Text(
                   weatherModel.weatherCondition.toString(),
                   style: const TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 25),
+                      fontWeight: FontWeight.bold, fontSize: 25),
                 ),
               ],
             ),
@@ -71,7 +72,8 @@ class WeatherInfoBody extends StatelessWidget {
           return Center(child: Text('Error: ${state.errorMessage}'));
         } else {
           // Display a default message when no data is available
-          return Center(child: Text('Enter a city name to get weather information.'));
+          return Center(
+              child: Text('Enter a city name to get weather information.'));
         }
       },
     );
